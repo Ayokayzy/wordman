@@ -7,7 +7,7 @@ import GameStatus from './game-status';
 
 const Application = () => {
   const [colorGuess, setColorGuess] = useState('');
-  const [correctAnswer, setCorrectAnswer] = useState(generateRandomColor());
+  const [correctAnswer, setCorrectAnswer] = useState(() => generateRandomColor());
   const [hasGuessed, setHasGuessed] = useState(false);
   const [isWinner, setIsWinner] = useState(false);
 
@@ -24,7 +24,7 @@ const Application = () => {
         value={colorGuess}
         onChange={(e) => setColorGuess(e.target.value)}
         onSubmit={() => setHasGuessed(true)}
-        disabled={hasGuessed}
+        // disabled={hasGuessed}
       />
       <GameStatus isWinner={isWinner} hasGuessed={hasGuessed} />
       <button
